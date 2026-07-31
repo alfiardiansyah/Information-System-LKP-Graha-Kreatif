@@ -1,6 +1,6 @@
 <x-layout>
     <section style="color: white; background-image: url('/img/lkp1.png'); background-size: cover; background-position: center;">
-       <div style="background-image: url('/img/lkp1.jpg'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+        <div style="background-color: rgba(55, 65, 81, 0.7); width: 100%; height: 100%;">
             <div style="max-width: 1200px; margin: 0 auto; padding: 5rem 1rem 8rem 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <div style="width: 100%; max-width: 50%; margin-bottom: 2.5rem; margin-left: 1.25rem;">
                     <h1 style="font-size: 2.25rem; font-weight: bold; line-height: 1.25; margin-bottom: 1rem;">Unlock Your Potential with Professional IT Training</h1>

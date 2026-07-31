@@ -60,4 +60,32 @@ class ProgramController extends Controller
         return view('programs', compact('enrolledPrograms', 'suggestedPrograms'));
     }
 
+    public function enroll(Request $request, $slug)
+    {
+        $program = Program::where('slug', $slug)->firstOrFail();
+        $user = Auth::user();
+
+        if ($user->programs()->where('program_id', $program->id)->exists()) {
+            return redirect()->back()->with('error', 'Anda sudah terdaftar dalam program ini.');
+        }
+
+        $user->programs()->attach($program->id, ['enrolled_at' => now()]);
+
+        return redirect()->route('programs.index')->with('success', 'Berhasil mendaftar program.');
+    }
+
+    public function unenroll(Request $request, $slug)
+    {
+        $program = Program::where('slug', $slug)->firstOrFail();
+        $user = Auth::user();
+
+        if (!$user->programs()->where('program_id', $program->id)->exists()) {
+            return redirect()->back()->with('error', 'Anda tidak terdaftar dalam program ini.');
+        }
+
+        $user->programs()->detach($program->id);
+
+        return redirect()->route('programs.index')->with('success', 'Berhasil membatalkan pendaftaran program.');
+    }
 }
+
