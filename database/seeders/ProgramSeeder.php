@@ -13,34 +13,34 @@ class ProgramSeeder extends Seeder
             [
                 'title' => 'Web Development Fundamentals',
                 'slug' => 'web-development-fundamentals',
-                'description' => 'Learn HTML, CSS, JavaScript and PHP to build modern, responsive websites from scratch.',
+                'description' => 'Pelajari dasar-dasar HTML, CSS, JavaScript, dan PHP untuk membangun website modern dan responsif dari nol.',
                 'category' => 'Programming',
                 'price' => 2500000,
                 'duration_weeks' => 12,
-                'image_path' => 'images/programs/web-dev.jpg',
+                'image_path' => 'images/programs/web-programming.jpg',
             ],
             [
-                'title' => 'Advanced Excel for Professionals',
-                'slug' => 'advanced-excel-for-professionals',
-                'description' => 'Master complex formulas, pivot tables, macros, and data analysis tools in Microsoft Excel.',
+                'title' => 'Advanced Microsoft Office',
+                'slug' => 'advanced-microsoft-office',
+                'description' => 'Kuasai formula kompleks, pivot table, macros, Word automation, dan presentasi profesional untuk dunia kerja.',
                 'category' => 'Microsoft Office',
                 'price' => 1800000,
                 'duration_weeks' => 8,
-                'image_path' => 'images/programs/excel.jpg',
+                'image_path' => 'images/programs/microsoft-office.jpg',
             ],
             [
-                'title' => 'Laravel Application Development',
-                'slug' => 'laravel-application-development',
-                'description' => 'Build robust web applications using Laravel, the popular PHP framework with MVC architecture.',
-                'category' => 'Framework',
-                'price' => 3200000,
-                'duration_weeks' => 16,
-                'image_path' => 'images/programs/laravel.jpg',
+                'title' => 'Desain Grafis & Multimedia',
+                'slug' => 'desain-grafis-multimedia',
+                'description' => 'Pelajari Adobe Photoshop, Illustrator, dan teknik branding visual untuk kebutuhan media sosial dan industri kreatif.',
+                'category' => 'Design',
+                'price' => 2200000,
+                'duration_weeks' => 10,
+                'image_path' => 'images/programs/design-graphic.jpg',
             ],
         ];
 
         foreach ($programs as $program) {
-            Program::create($program);
+            Program::firstOrCreate(['slug' => $program['slug']], $program);
         }
     }
 }
